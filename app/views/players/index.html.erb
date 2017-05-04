@@ -1,0 +1,27 @@
+<h1>List all Players</h1>
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Team</th>
+    </tr>
+    
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.name %></td>
+        <td><%= player.surname %></td>
+        <td><%= player.age %></td>
+        <td><%= player.height %></td>
+        <td><%= player.teams.last if player.teams %></td>
+        <td>
+          <%= link_to "Show", :action => 'show', :id => player.id %>
+          <%= link_to "Edit", :action => 'edit', :id => player.id %>
+          <%= link_to "Delete", :action => 'delete', :id => player.id %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to "Add Player", players_new_path %>
+

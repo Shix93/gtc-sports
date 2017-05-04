@@ -1,6 +1,30 @@
 Rails.application.routes.draw do
 
   
+  get 'teams/index'
+
+  get 'teams/show'
+
+  get 'teams/new'
+
+  get 'teams/edit'
+
+  get 'players_teams/index'
+
+  get 'players_teams/show'
+
+  get 'players_teams/new'
+
+  get 'players_teams/edit'
+
+  get 'players/index'
+
+  get 'players/show'
+
+  get 'players/new'
+
+  get 'players/edit'
+
   devise_for :users
   root 'leagues#index'
 

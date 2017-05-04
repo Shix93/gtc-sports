@@ -1,0 +1,29 @@
+<h1><%= @player.name + " " + @player.surname %></h1>
+  
+  <table class="table table-striped">
+    <tr>
+      <th>Name:</th>
+      <td><%= @player.name %></td>
+    </tr>
+    <tr>
+      <th>Surname:</th>
+      <td><%= @player.surname %></td>
+    </tr>
+    <tr>
+      <th>Age:</th>
+      <td><%= @player.age %></td>
+    </tr>
+    <tr>
+      <th>Height:</th>
+      <td><%= @player.height %></td>
+    </tr>
+    <tr>
+      <th>Teams:</th>
+      <td>
+        <% @player.teams.each do |team| %>
+          <%= team.name + "; " %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+  <%= link_to "<< Back", :action => 'index' %>

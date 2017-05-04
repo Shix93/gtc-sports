@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504161754) do
+ActiveRecord::Schema.define(version: 20170504175018) do
 
   create_table "leagues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20170504161754) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_players_on_user_id", using: :btree
+  end
+
+  create_table "players_teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "team_id"
+    t.integer  "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_players_teams_on_player_id", using: :btree
+    t.index ["team_id"], name: "index_players_teams_on_team_id", using: :btree
   end
 
   create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -55,5 +64,7 @@ ActiveRecord::Schema.define(version: 20170504161754) do
   end
 
   add_foreign_key "players", "users"
+  add_foreign_key "players_teams", "players"
+  add_foreign_key "players_teams", "teams"
   add_foreign_key "teams", "leagues"
 end
