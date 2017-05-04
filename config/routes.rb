@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  devise_for :users
   root 'leagues#index'
 
   match ':controller(/:action(/:id))', :via => [:get, :post, :put]
