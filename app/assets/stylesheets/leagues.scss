@@ -1,3 +1,18 @@
 // Place all the styles related to the Leagues controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+#l_table
+{
+  margin-top: 40px;
+}
+
+#l_name 
+{
+  font-size: 25px;    
+}

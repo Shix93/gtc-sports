@@ -1,2 +1,6 @@
-<h1>Teams#new</h1>
-<p>Find me in app/views/teams/new.html.erb</p>
+<h1>Registruj Tim</h1>
+
+<%= form_for(:team, :url => {:action => 'create'}) do |f|  %>
+    <%= render :partial => 'form', :locals => { :f => f }  %>
+    <%= submit_tag("create") %>
+<% end %>
