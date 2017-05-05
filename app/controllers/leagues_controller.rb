@@ -11,6 +11,7 @@ class LeaguesController < ApplicationController
 
   def show
     respond_to do |format|
+      format.html
       format.json {render json: @league}
     end
   end
@@ -40,6 +41,7 @@ class LeaguesController < ApplicationController
       render 'new'
     end
   end
+  
 
   def delete
     @league.destroy

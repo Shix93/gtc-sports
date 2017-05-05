@@ -1,2 +1,6 @@
-<h1>Teams#edit</h1>
-<p>Find me in app/views/teams/edit.html.erb</p>
+<h1>Azuriraj Tim</h1>
+
+<%= form_for(:team, :url => { :action => 'update', :id => @team.id }) do |f| %>
+    <%= render :partial => "form", :locals => { :f => f } %>
+    <%= submit_tag("Azuriraj") %>
+<% end %>

@@ -1,2 +1,9 @@
-<h1>Leagues#index</h1>
+<h1 align="center">Lista Liga</h1>
 
+
+
+<table class="table table-condensed" id = "l_table">
+    <% @leagues.each do |league|%>
+        <td align="center" id="l_name"><%= league.name %></td>
+    <% end %>
+</table>

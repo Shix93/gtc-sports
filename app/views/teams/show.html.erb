@@ -1,2 +1,8 @@
-<h1>Teams#show</h1>
-<p>Find me in app/views/teams/show.html.erb</p>
+<h1 align="center"><%= @team.name %></h1>
+<p align="center"><%= image_tag  @team.avatar.url(:medium), :height => "150px" %></p>
+
+
+<%= link_to "Show", :action => 'show', :id => @team.id %> |
+<%= link_to "Edit", :action => 'edit', :id => @team.id %> |
+<%= link_to "Delete", :action => 'destroy', :id => @team.id %> |
+<%= link_to "<< Back", :action => 'index' %>
