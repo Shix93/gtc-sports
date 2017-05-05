@@ -21,4 +21,9 @@
             <td><%= cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text}%></td>
         <% end %>
     </tr>
+    <tr>
+        <th><%= f.label(:avatar) %></th>
+        <td><%= f.file_field :avatar %></td>
+    </tr>
 </table>
+

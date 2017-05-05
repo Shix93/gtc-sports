@@ -14,7 +14,7 @@ class PlayersController < ApplicationController
   end
   
   def create
-    @player = Player.new(player_params)
+    @player = Player.new( player_params )
     if @player.save
       flash[:notice] = "'#{@player.name + " " + @player.surname}' is succsessfully added"
       redirect_to(:action => 'index')
@@ -27,7 +27,7 @@ class PlayersController < ApplicationController
   end
   
   def update
-    if @player.update_attributes(player_params)
+    if @player.update_attributes( player_params )
       flash[:notice] = "'#{@player.name + " " + @player.surname}' is succsessfully updated"
       redirect_to(:action => 'show', :id => @player.id)
     else
@@ -51,6 +51,6 @@ class PlayersController < ApplicationController
     end
     
     def player_params
-      params.require(:player).permit(:name, :surname, :age, :height, team_ids: [])
+      params.require(:player).permit(:avatar, :name, :surname, :age, :height, team_ids: [])
     end
 end
