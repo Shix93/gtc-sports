@@ -36,6 +36,9 @@ class PlayersController < ApplicationController
   end
   
   def delete
+    @player.players_teams.each do |pt|
+      pt.destroy
+    end
     @player.destroy
     flash[:notice] = "'#{@player.name + " " + @player.surname}' is succsessfully deleted"
     redirect_to(:action => 'index')
@@ -48,6 +51,6 @@ class PlayersController < ApplicationController
     end
     
     def player_params
-      params.require(:player).permit(:name, :surname, :age, :height)
+      params.require(:player).permit(:name, :surname, :age, :height, team_ids: [])
     end
 end

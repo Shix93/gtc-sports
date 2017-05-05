@@ -15,4 +15,10 @@
         <th><%= f.label(:height, "Height:") %></th>
         <td><%= f.text_field(:height) %></td>
     </tr>
+    <tr>
+        <th><%= f.label(:team_id, "Team:") %></th>
+        <%= f.collection_check_boxes :team_ids, Team.all, :id, :name do |cb|%>
+            <td><%= cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text}%></td>
+        <% end %>
+    </tr>
 </table>

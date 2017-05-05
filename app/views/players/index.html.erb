@@ -14,7 +14,11 @@
         <td><%= player.surname %></td>
         <td><%= player.age %></td>
         <td><%= player.height %></td>
-        <td><%= player.teams.last if player.teams %></td>
+        <td>
+          <% player.teams.each do |team| %>
+            <%= team.name + " | " %>
+          <% end %>
+        </td>
         <td>
           <%= link_to "Show", :action => 'show', :id => player.id %>
           <%= link_to "Edit", :action => 'edit', :id => player.id %>
