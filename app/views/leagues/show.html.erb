@@ -1,6 +1,11 @@
-<h1>Leagues#show</h1>
-<p>Find me in app/views/leagues/show.html.erb</p>
+<h1 align="center"><%= @league.name %></h1>
 
-<table>
-    <tr><%= @league.name %></tr>
+	
+<table class="table table-striped">
+	<% @tim_lige.each do |team|%>
+		<tr onclick="location.href='<%= team_path(team) %>'">
+			<td id="padding"><%= team.name %></td>
+			<td><%= image_tag team.avatar.url(:thumb), :id => "grb"%></td>
+		</tr>
+	<% end %>
 </table>

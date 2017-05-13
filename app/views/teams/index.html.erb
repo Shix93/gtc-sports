@@ -1,18 +1,15 @@
 <h1 align="center">Lista timova</h1>
 
-<table class="table table-condensed" id = "l_table">
+<table class="table table-striped" >
     <tr>
         <th>Ime ekipe</th>
         <th>Grb</th>
+        <th>Liga</th>
+        <th> </th>
     </tr>
     
-    <% @teams.each do |team|%>
-        <tr>
-            <td><%= team.name %></td>
-            <td><%=  image_tag team.avatar.url(:thumb), :id => "grb" %></td>
-            <td><%= link_to "Statistike tima", :action => 'show', :id => team.id %></td>
-        </tr>
-    <% end %>
+    <!-- Helper metod teams se na nalazi u view/teams/_teams.html.erb -->
+    <%= render 'teams/teams', obj: @teams %>
 </table>
 
 <%= link_to "Registruj Tim", :action => 'new' %>

@@ -5,7 +5,6 @@ class CreatePlayers < ActiveRecord::Migration[5.0]
       t.string :surname
       t.integer :age
       t.integer :height
-      t.references :user, foreign_key: true
 
       t.timestamps
     end

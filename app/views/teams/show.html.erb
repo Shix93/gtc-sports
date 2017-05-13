@@ -2,7 +2,20 @@
 <p align="center"><%= image_tag  @team.avatar.url(:medium), :height => "150px" %></p>
 
 
-<%= link_to "Show", :action => 'show', :id => @team.id %> |
-<%= link_to "Edit", :action => 'edit', :id => @team.id %> |
-<%= link_to "Delete", :action => 'destroy', :id => @team.id %> |
-<%= link_to "<< Back", :action => 'index' %>
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Age</th>
+    <th>Height</th>
+    <th>Team</th>
+    <th></th>
+  </tr>
+
+  <!-- Helper metod teams se na nalazi u view/players/_teams_of_player.html.erb -->
+  <%= render 'players/teams_of_player', obj:@team.players %>
+</table>
+
+<%= link_to "Show", team_path(@team) %> |
+<%= link_to "Edit",  edit_team_path(@team)%> |
+<%= link_to "Delete", team_path(@team), method: :delete %>

@@ -1,4 +1,6 @@
-<h1><%= @player.name + " " + @player.surname %></h1>
+<h1 align="center"><%= @player.name + " " + @player.surname %></h1>
+  
+  <div align="center"><%= image_tag @player.avatar.url(:thumb) %></div> 
   
   <table class="table table-striped">
     <tr>
@@ -21,14 +23,15 @@
       <th>Teams:</th>
       <td>
         <% @player.teams.each do |team| %>
-          <%= team.name + " | " %>
+          <%= link_to team.name, team_path(team) %> <% unless team == @player.teams.last %> | <% end %>
         <% end %>
       </td>
     </tr>
-    <tr>
-      <th>Image:</th>
-      <td><%= image_tag @player.avatar.url(:thumb) %></td>
-    </tr>
+
+
+
   </table>
-  <%= link_to "<< Back", :action => 'index' %>
+  <%= link_to "Edit", edit_player_path(@player) %>
+  <%= link_to "Delete", player_path(@player), method: :delete %>
+  <%= link_to "<< Back", players_path %>
   

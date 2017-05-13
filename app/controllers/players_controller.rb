@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   
-  before_action :set_player, only: [:show, :edit, :update, :delete ]
+  before_action :set_player, only: [:show, :edit, :update, :destroy ]
   
   def index
     @players = Player.all
@@ -43,13 +43,10 @@ class PlayersController < ApplicationController
     end
   end
   
-  def delete
-    @player.players_teams.each do |pt|
-      pt.destroy
-    end
+  def destroy
     @player.destroy
     flash[:notice] = "'#{@player.name + " " + @player.surname}' is succsessfully deleted"
-    redirect_to(:action => 'index')
+    redirect_to players_path
   end
   
   private

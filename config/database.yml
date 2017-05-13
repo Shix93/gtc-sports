@@ -15,7 +15,9 @@ default: &default
   pool: 5
   username: root
   password:
-  socket: /var/run/mysqld/mysqld.sock
+  socket: /opt/lampp/var/mysql/mysql.sock
+  #socket za Cloud9
+  #socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default

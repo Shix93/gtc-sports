@@ -1,0 +1,23 @@
+<% obj.each do |player| %>
+  <tr>
+    <%= link_to(player) do %>
+      <td onclick="location.href='<%= player_path(player) %>'"><%= player.name %></td>
+      <td onclick="location.href='<%= player_path(player) %>'"><%= player.surname %></td>
+      <td onclick="location.href='<%= player_path(player) %>'"><%= player.age %></td>
+      <td onclick="location.href='<%= player_path(player) %>'"><%= player.height %></td>
+    <% end %>
+    <td>
+      <% if player.teams.blank? %>
+         Unsigned
+      <% else %>
+        <% player.teams.each do |team| %>      
+          <%= link_to team.name, team_path(team) %> <% unless team == player.teams.last %> | <% end %>
+        <% end %>       
+      <% end %>
+    </td>
+    <td>
+      
+    </td>
+  </tr>
+<% end %>
+

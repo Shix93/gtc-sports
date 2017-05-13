@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   
-  has_many :players
+  belongs_to :player
+  belongs_to :delegate
+  has_many :requests, dependent: :destroy
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

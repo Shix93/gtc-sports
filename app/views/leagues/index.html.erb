@@ -2,8 +2,10 @@
 
 
 
-<table class="table table-condensed" id = "l_table">
+<table class="table table-striped">
     <% @leagues.each do |league|%>
-        <td align="center" id="l_name"><%= league.name %></td>
+        <tr>
+        	<td align="center" id="l_name"><%=link_to league.name, league_path(league) %></td>
+        </tr>
     <% end %>
 </table>

@@ -1,36 +1,24 @@
 Rails.application.routes.draw do
 
   
+  
+
+ 
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get 'teams/index'
 
-  get 'teams/show'
-
-  get 'teams/new'
-
-  get 'teams/edit'
-
-  get 'players_teams/index'
-
-  get 'players_teams/show'
-
-  get 'players_teams/new'
-
-  get 'players_teams/edit'
-
-  get 'players/index'
-
-  get 'players/show'
-
-  get 'players/new'
-
-  get 'players/edit'
+  resources :leagues
+  resources :players
+  resources :teams
+  resources :requests
+  
 
   devise_for :users
   root 'leagues#index'
 
-  match ':controller(/:action(/:id))', :via => [:get, :post, :put]
+  #match ':controller(/:action(/:id))', :via => [:get, :post, :put]
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.

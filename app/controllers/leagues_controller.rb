@@ -10,6 +10,7 @@ class LeaguesController < ApplicationController
   end
 
   def show
+    @tim_lige = Team.where(:league_id => @league.id)
     respond_to do |format|
       format.html
       format.json {render json: @league}
@@ -43,9 +44,12 @@ class LeaguesController < ApplicationController
   end
   
 
-  def delete
-    @league.destroy
-    redirect_to @leagues_path
+  def destroy
+    @league.teams.each do |team|
+        team.update(:league_id => "nil")
+    end
+      @league.destroy
+      redirect_to @leagues_path
   end
 
   private
